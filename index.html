@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream 工作室 · 官方网站</title>
+    <style>
+        /* 全局重置 & 字体 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(145deg, #0f0f1a 0%, #1a1a2e 100%);
+            color: #eaeef2;
+            padding: 24px;
+        }
+
+        .card {
+            max-width: 720px;
+            width: 100%;
+            background: rgba(26, 26, 46, 0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 48px;
+            padding: 40px 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+        }
+
+        /* 头部区域 */
+        .header h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #a78bfa, #60a5fa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+
+        .header .subhead {
+            font-size: 1rem;
+            color: #94a3b8;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            padding-bottom: 20px;
+            margin-bottom: 28px;
+        }
+
+        .header .subhead span {
+            display: inline-block;
+            background: rgba(96, 165, 250, 0.12);
+            padding: 2px 14px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #93c5fd;
+            margin-top: 8px;
+        }
+
+        /* 下载区块 */
+        .download-section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 24px;
+            padding: 24px 20px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: background 0.2s;
+        }
+
+        .download-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .download-section h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            color: #e2e8f0;
+        }
+
+        .download-section h2 .badge {
+            font-size: 0.7rem;
+            background: #22c55e;
+            color: #0a0a1a;
+            padding: 2px 12px;
+            border-radius: 40px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        .file-meta {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            background: rgba(0, 0, 0, 0.25);
+            padding: 8px 14px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            display: inline-block;
+            font-family: "SF Mono", "Fira Code", monospace;
+            word-break: break-all;
+        }
+
+        /* 按钮终极样式 */
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: #ffffff;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 60px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 8px 20px -8px rgba(59, 130, 246, 0.35);
+            width: 100%;
+            touch-action: manipulation;
+            letter-spacing: 0.3px;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.01);
+            box-shadow: 0 12px 28px -8px rgba(59, 130, 246, 0.55);
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+        }
+
+        .download-btn:active {
+            transform: scale(0.97);
+            box-shadow: 0 4px 12px -4px rgba(59, 130, 246, 0.4);
+        }
+
+        /* 下载安全提示 */
+        .security-note {
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.8rem;
+            color: #64748b;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .security-note span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .security-note .icon {
+            font-size: 1rem;
+        }
+
+        /* 手机适配 */
+        @media (max-width: 500px) {
+            .card {
+                padding: 28px 18px;
+                border-radius: 32px;
+            }
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            .download-btn {
+                font-size: 1rem;
+                padding: 14px 20px;
+            }
+            .download-section h2 {
+                font-size: 1.1rem;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <!-- 头部信息 -->
+    <div class="header">
+        <h1>✦ Dream 工作室</h1>
+        <div class="subhead">
+            安全 · 免费 · 放心
+            <br>
+            <span>👤 维护者：抖音 Gr_dream</span>
+        </div>
+    </div>
+
+    <!-- 下载区块 1：视频播放器 -->
+    <div class="download-section">
+        <h2>
+            🎬 视频播放器
+            <span class="badge">最新版</span>
+        </h2>
+        <div class="file-meta">
+            📦 Dream工作室视频播放器_Setup.exe
+        </div>
+        <a href="https://223-109-125-232-v2.pd1.cjjd19.com/user-share-free-download-cdn.123295.com/123-414/8f448121/1853536699-0/8f448121752e829fb17155360bf03d9e/c-m9009?v=5&t=1782697318&r=F498BN&bzc=2&bzs=313835333533363639393a31353935313235393a38343730333534323a313835333533363639393a32&ur=vvvgviguugvl&urn=0&s=178269731812a7b647746b0dc71f85b885285ccbe7&bzp=0&bi=4029351619&filename=Dream%E5%B7%A5%E4%BD%9C%E5%AE%A4%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8_Setup.exe&x-mf-biz-cid=c08c768e-7dbf-4721-bdcf-052d426b2287-5baabb&auto_redirect=0&ndcp=1&cache_type=1"
+           class="download-btn"
+           target="_blank"
+           rel="noopener noreferrer">
+            ⬇️ 立刻下载
+        </a>
+    </div>
+
+    <!-- 下载区块 2：Minecraft 启动器 -->
+    <div class="download-section">
+        <h2>
+            ⛏️ DMCL 启动器
+            <span class="badge">推荐</span>
+        </h2>
+        <div class="file-meta">
+            📦 DMCL_Setup.exe
+        </div>
+        <a href="https://223-109-125-228-v2.pd1.cjjd19.com/user-share-free-download-cdn.123295.com/123-372/2ab12d9e/1853536699-0/2ab12d9eb9ceb4a852be31d073cf9574/c-m8009?v=5&t=1782698243&r=SH7XA6&bzc=2&bzs=313835333533363639393a31353935313235313a32383833313231393a313835333533363639393a32&ur=vvvgviguugvl&urn=0&s=1782698243a76b14a7c3acf7789ea0b59dbd6d0593&bzp=0&bi=4029351619&filename=DMCL_Setup.exe&x-mf-biz-cid=8cc5e231-692b-4644-b4a5-1131ee12e150-6eaa77&auto_redirect=0&ndcp=1&cache_type=1"
+           class="download-btn"
+           target="_blank"
+           rel="noopener noreferrer">
+            ⬇️ 立刻下载
+        </a>
+    </div>
+
+    <!-- 安全与提示信息 -->
+    <div class="security-note">
+        <span>🔒 下载链接来自 123 云盘</span>
+        <span>📄 安装前请校验文件哈希</span>
+        <span>🛡️ 本网站仅提供便捷跳转</span>
+    </div>
+</div>
+
+</body>
+</html>
